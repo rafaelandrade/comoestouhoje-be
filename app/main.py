@@ -11,7 +11,8 @@ app = FastAPI(
     title="BE-comoestouhoje",
     description="backend of comoestouhoje service",
     version="1.0.0",
-    docs_url=""
+    docs_url="/comoestouhoje/docs",
+    redoc_url="/comoestouhoje/redoc"
 )
 
 
@@ -21,13 +22,12 @@ async def catch_exception_middleware(request: Request, call_next):
     try:
         response = await call_next(request)
         process_request_time = round((time.time() - start_request_time) * 1000, 2)
-
+        print(f"process_request_time: {process_request_time} - status {response.status}")
         return response
     except Exception as _:
         return JSONResponse({
             "error": True,
             "message": "Internal Server Error",
-            "request_id": "a",
         }, status_code=500)
 
 app.middleware('http')(catch_exception_middleware)
