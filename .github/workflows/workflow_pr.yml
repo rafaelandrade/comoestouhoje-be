@@ -21,7 +21,9 @@ jobs:
           python -m pip install --upgrade pip
           pip3 install -r requirements.txt
       - name: Generate coverage report
-        run:  scripts/exec_test.sh
+        run:  |
+          chmod 755 scripts/exec_test.sh
+          scripts/exec_test.sh
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
