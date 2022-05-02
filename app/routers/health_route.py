@@ -8,5 +8,9 @@ router = APIRouter(
 
 
 @router.get("/health")
-async def health_check():
+async def health_check() -> dict:
+    """
+    Router for verification of health of service
+    :return:
+    """
     return {"status": 200, "message": "Hello World!"}

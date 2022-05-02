@@ -6,6 +6,12 @@ client = TestClient(app)
 
 
 def test_health_route():
+    """
+    Test related with health check route
+
+    Objective:
+     - Should return 200 in case of everything fine with service
+    """
     endpoint = "/health"
     response = client.get(endpoint)
 
