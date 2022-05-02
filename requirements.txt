@@ -8,4 +8,5 @@ pytest-mock==3.6.1
 pytest==7.1.2
 coverage==5.5
 coverage-badge==1.0.1
-pytest-sugar
+pytest-sugar==0.9.4
+requests==2.27.1

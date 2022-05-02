@@ -6,7 +6,7 @@ services:
         build: .
         restart: always
         container_name: comoestouhoje-be
-        ports: ['5000:5000']
+        ports: ['4003:4003']
         volumes:
             - .:/app
-        command: bash -c 'uvicorn app.main:app --host 0.0.0.0 --reload --port 5000'
+        command: bash -c 'uvicorn app.main:app --host 0.0.0.0 --reload --port 4003'
